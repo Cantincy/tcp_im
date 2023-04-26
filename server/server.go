@@ -156,12 +156,12 @@ func (this *Server) UserOffline(user *entity.User) {
 	this.BroadCastMsg(user.Name + ": Offline...") // 将用户下线信息广播给所有用户
 }
 
-func (this *Server) SearchUser(userName string) string {
-	_, ok := this.OnlineMap[userName]
+func (this *Server) SearchUser(userAddr string) string {
+	_, ok := this.OnlineMap[userAddr]
 	if ok {
-		return userName + " is Online"
+		return userAddr + " is Online"
 	}
-	return userName + " is Offline"
+	return userAddr + " is Offline"
 }
 
 func (this *Server) AllOnlineUser() string {
